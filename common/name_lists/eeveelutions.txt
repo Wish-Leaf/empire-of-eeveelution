@@ -15,7 +15,7 @@
     "Rookidee" "Corviknight" "Beedrill" "Doduo"  "Golbat" "Ledian" "Noctowl" "Pidgeotto" "Taillow" "Staravia" "Chatot" "Rotom" "Swoobat" "Ducklett" "Vullaby" "Hawlucha" "Trumbeak" "Wattrel" "Ninjask" "Goldeen" "Finneon" "Lanturn" "Sharpedo" "Venomoth" "Haunter"
     }
     cruiser = {
-    "Corvisquire" "Crobat" "Aerodactyl" "Xatu" "Murkow" "Mantine" "Pidgeot" "Fearow" "Dodrio" "Wingull" "Yanmega" "Tranquill" "Archeops" "Rufflet" "Mandibuzz" "Fletchinder" "Toucannon" "Seadra" "Lumineon" "Zweilous"
+    "Corvisquire" "Crobat" "Aerodactyl" "Xatu" "Murkrow" "Mantine" "Pidgeot" "Fearow" "Dodrio" "Wingull" "Yanmega" "Tranquill" "Archeops" "Rufflet" "Mandibuzz" "Fletchinder" "Toucannon" "Seadra" "Lumineon" "Zweilous"
     }
     battleship = {
     "Dragonite" "Swellow" "Salamence" "Staraptor" "Shaymin" "Braviary" "Talonflame" "Seaking" "Starmie" "Kingdra" "Charizard" "Flygon" "Hydreigon"

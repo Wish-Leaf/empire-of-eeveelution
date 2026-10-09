@@ -1,0 +1,1178 @@
+trait_EOE_Inheritors = {
+	cost = 0
+	# potential_crossbreeding_chance = 1.00
+	icon = "gfx/interface/icons/traits/trait_EOE_Inheritors.png"
+
+	opposites = { "trait_nonadaptive" }
+	improves_leaders = no
+	initial = yes
+	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+
+}
+
+
+
+
+trait_directed_evolution = {
+	cost = 0
+	# Crossbreeding was deep sixed in 4.0. Thank heavens.
+	# potential_crossbreeding_chance = 1.00
+	icon = "gfx/interface/icons/traits/EOET1.png"
+
+	opposites = { "trait_nonadaptive" }
+	improves_leaders = no
+	initial = yes
+	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+	#custom_tooltip = trait_directed_evolution.tooltip
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	
+	modifier = {
+		pop_environment_tolerance = 0.1
+		# BIOLOGICAL_species_trait_picks_add = 20
+		# POKEMON_species_trait_picks_add = 20
+		# BIOLOGICAL_species_trait_picks_add = 20
+	}
+
+	triggered_pop_group_modifier = {
+
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				OR = {
+					has_planet_flag = EOE_evoplan_grass
+					has_planet_flag = EOE_evoplan_water
+					has_planet_flag = EOE_evoplan_fire
+					has_planet_flag = EOE_evoplan_electric
+					has_planet_flag = EOE_evoplan_psychic
+					has_planet_flag = EOE_evoplan_dark
+					has_planet_flag = EOE_evoplan_ice
+					has_planet_flag = EOE_evoplan_fairy
+				}
+			}
+		}
+		pop_happiness = -0.01
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_grass
+			}
+		}
+		farmer_jobs_bonus_workforce_mult = 0.15
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_electric
+			}
+		}
+		technician_jobs_bonus_workforce_mult = 0.15
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_fire
+			}
+		}
+		foundry_jobs_bonus_workforce_mult = 0.1
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_water
+			}
+		}
+		logistic_growth_mult = 0.1
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_psychic
+			}
+		}
+		researcher_jobs_bonus_workforce_mult = 0.1
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_dark
+			}
+		}
+		miner_jobs_bonus_workforce_mult = 0.15
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_ice
+			}
+		}
+		artisan_jobs_bonus_workforce_mult = 0.1
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				has_planet_flag = EOE_evoplan_fairy
+			}
+		}
+		bureaucrat_jobs_bonus_workforce_mult = 0.1
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	# this did not work.
+	# resources = {
+	# 	category = planet_pops
+	# 	produces = {
+	# 		trigger = {
+	# 			exists = owner
+	# 			owner = {
+	# 				has_valid_civic = civic_EOE_evolution_planning
+	# 			}
+	# 			planet = {
+	# 				has_planet_flag = EOE_evoplan_fairy
+	# 			}
+	# 			has_job_type = bureaucrat
+	# 		}
+	# 		unity = 0.5
+	# 		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	# 	}
+	# }
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				OR = {
+					AND = {
+						has_climate = dry
+						OR = {
+							has_planet_flag = EOE_evoplan_fire
+							has_planet_flag = EOE_evoplan_electric
+						}
+					}
+					AND = {
+						has_climate = wet
+						OR = {
+							has_planet_flag = EOE_evoplan_water
+							has_planet_flag = EOE_evoplan_grass
+						}
+					}
+					AND = {
+						has_climate = cold
+						OR = {
+							has_planet_flag = EOE_evoplan_ice
+						}
+					}
+					AND = {
+						is_planet_class = pc_nuked
+						has_planet_flag = EOE_evoplan_dark
+					}
+				}
+			}
+		}
+		pop_environment_tolerance = 0.1
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_EOE_evolution_planning
+			}
+			planet = {
+				OR = {
+					AND = {
+						has_climate = dry
+						OR = {
+							has_planet_flag = EOE_evoplan_ice
+							has_planet_flag = EOE_evoplan_water
+						}
+					}
+					AND = {
+						has_climate = wet
+						OR = {
+							has_planet_flag = EOE_evoplan_electric
+						}
+					}
+					AND = {
+						has_climate = cold
+						OR = {
+							has_planet_flag = EOE_evoplan_fire
+							has_planet_flag = EOE_evoplan_grass
+						}
+					}
+				}
+			}
+		}
+		pop_environment_tolerance = -0.1
+		mult = modifier:pop_EOE_evolution_planning_effect_mult
+	}
+}
+
+trait_pokeball_adaptability = {
+	cost = 0
+	# potential_crossbreeding_chance = 1.00
+	icon = "gfx/interface/icons/traits/EOET2.png"
+
+	opposites = { "trait_solitary" "trait_sedentary" "trait_unruly"}
+	improves_leaders = no
+	initial = yes
+	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+	allowed_archetypes = { BIOLOGICAL MACHINE }
+	species_class = {
+		Steelmons
+		Eeveelutions
+		Othermons
+	}
+	###添加失业人口维护费减免，未测试
+	custom_tooltip = trait_pokeball_adaptability_effect
+	modifier = {
+		pop_housing_usage_mult = -0.1
+		planet_pops_upkeep_mult = -0.05
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			OR = {
+				is_unemployed = yes
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+		}
+		planet_pops_upkeep_mult = -0.70
+		pop_housing_usage_mult = -0.65
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = EOE_afferent_nerve_stimulation
+			}
+		}
+		pop_housing_usage_mult = -0.1
+		pop_happiness = 0.05
+		species_empire_size_mult = -0.1
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = EOE_dopamine_stimulation
+			}
+		}
+		pop_housing_usage_mult = -0.1
+		pop_happiness = 0.05
+		species_empire_size_mult = -0.1
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = EOE_virtual_paradise
+			}
+		}
+		pop_housing_usage_mult = -0.2
+		pop_happiness = 0.1
+		species_empire_size_mult = -0.2
+		pop_amenities_usage_mult = -0.15
+	}
+}
+
+# trait_centralized_incubation_system = {
+# 	cost = 2
+# 	# potential_crossbreeding_chance = 1.00
+# 	icon = "gfx/interface/icons/traits/EOET3.png"
+
+
+# 	improves_leaders = no
+# 	initial = no
+# 	randomized = no
+# 	species_potential_add = {
+# 		always = no
+# 	}
+# 	species_possible_remove = {
+# 		always = no
+# 	}
+# 	species_possible_merge_add = {
+# 		always = no
+# 	}
+
+# 	allowed_archetypes = { BIOLOGICAL }
+
+# 	modifier = {
+# 		logistic_growth_mult = 0.20
+# 	}
+# }
+
+trait_natural_psionic_warrior = {
+	cost = 0
+	# potential_crossbreeding_chance = 1.00
+	icon = "gfx/interface/icons/traits/EOET5.png"
+	
+	improves_leaders = no
+	initial = yes
+	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+	allowed_archetypes = { BIOLOGICAL MACHINE }
+	species_class = {
+		Steelmons
+		Eeveelutions
+		Othermons
+	}
+	modifier = {
+		army_damage_mult = 0.20
+		worker_and_simple_drone_cat_bonus_workforce_mult = 0.025
+		
+	}
+}
+
+trait_extremely_cute = {
+	cost = 0
+	# potential_crossbreeding_chance = 1.00
+	icon = "gfx/interface/icons/traits/EOET4.png"
+	opposites = { "trait_repugnant" }
+	improves_leaders = no
+	initial = yes
+	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	custom_tooltip =  TRAIT_CUTE_EFFECT
+}
+
+trait_normal_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/normal_type.png"
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		pop_environment_tolerance = 0.4
+		habitability_floor_add = 0.5
+		
+		
+	}
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_grass_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/grass_type.png"
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		planet_pops_food_upkeep_mult = -0.50
+		farmer_jobs_bonus_workforce_mult = 0.25
+		logistic_growth_mult = 0.10
+		bonus_pop_growth_mult = 0.1
+		army_defense_damage_mult = 0.5
+		
+	}
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_fire_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/fire_type.png"
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		technician_jobs_bonus_workforce_mult = 0.4
+		miner_jobs_bonus_workforce_mult = 0.4
+		army_damage_mult = 0.4
+		
+	}
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_water_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/water_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		leader_lifespan_add = 20
+		logistic_growth_mult = 0.2
+		# logistic_growth_mult = 0.2
+		bonus_pop_growth_mult = 0.2
+		biologist_jobs_bonus_workforce_mult = 0.2
+		army_health = 0.25
+	}
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_electric_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/electric_type.png"
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		technician_jobs_bonus_workforce_mult = 0.6
+		physicist_jobs_bonus_workforce_mult = 0.2
+		army_damage_mult = 0.4
+		
+		
+	}
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_psychic_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/psychic_type.png"
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		researcher_jobs_bonus_workforce_mult = 0.3
+		species_leader_exp_gain = 0.2
+		negative_leader_traits_species = -1
+		leader_skill_levels = 2
+	}
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_dark_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/dark_type.png"
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	# opposites = { trait_dark_type_mega_evolution_swarm }
+	
+	modifier = {
+		bureaucrat_jobs_bonus_workforce_mult = 0.3
+		trader_jobs_bonus_workforce_mult = 0.3
+		enforcer_jobs_bonus_workforce_mult = 0.3
+		# planet_jobs_specialist_produces_mult = 0.05
+		# planet_jobs_worker_produces_mult = 0.1
+		# pop_slave_bonus_workforce_mult = 0.15	
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = from
+			from = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+		pop_government_ethic_attraction = 0.50
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = from
+			from = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		pop_amenities_usage_no_happiness_mult = -0.25
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+}
+# 0 = {
+# 	cost = 4
+# 	# potential_crossbreeding_chance = 0.5
+# 	icon = "gfx/interface/icons/EeveelutionTypes/dark_type.png"
+# 	initial = no
+# 	randomized = no
+# 	advanced_trait = yes
+# 	species_potential_add = {
+# 		always = no
+# 	}
+
+# 	species_possible_merge_add = {
+# 		always = no
+# 	}
+# 	allowed_archetypes = { BIOLOGICAL }
+# 	species_class = { Eeveelutions }
+	
+# 	modifier = {
+# 		bureaucrat_jobs_bonus_workforce_mult = 0.3
+# 		trader_jobs_bonus_workforce_mult = 0.3
+# 		# planet_jobs_unity_produces_mult = 0.20
+# 		# planet_jobs_complex_drone_produces_mult = 0.05
+# 		# planet_jobs_simple_drone_produces_mult = 0.1
+# 		pop_amenities_usage_no_happiness_mult = -0.25
+		
+# 	}
+# 	slave_cost = {
+# 		energy = 50
+# 	}
+# }
+
+trait_ice_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/ice_type.png"
+	initial = no
+	randomized = no
+	advanced_trait = yes
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	# opposites = { trait_ice_type_mega_evolution_swarm }
+	
+	modifier = {
+		# foundry_jobs_bonus_workforce_mult = 0.3
+		foundry_jobs_bonus_workforce_mult = 0.3
+		artisan_jobs_bonus_workforce_mult = 0.3
+		engineer_jobs_bonus_workforce_mult = 0.15
+		# planet_jobs_rare_crystals_produces_mult = 0.20
+		# planet_jobs_exotic_gases_produces_mult = 0.20
+		# planet_jobs_volatile_motes_produces_mult = 0.20
+		
+	}
+
+	# triggered_pop_group_modifier = {
+	# 	potential = {
+	# 		exists = owner
+	# 		owner = {
+	# 			country_uses_consumer_goods = yes
+	# 		}
+	# 	}
+	# 	foundry_jobs_bonus_workforce_mult = 0.3
+	# 	artisan_jobs_bonus_workforce_mult = 0.3
+	# 	engineer_jobs_bonus_workforce_mult = 0.15
+	# }
+
+	# triggered_pop_group_modifier = {
+	# 	potential = {
+	# 		exists = owner
+	# 		owner = {
+	# 			country_uses_consumer_goods = no
+	# 		}
+	# 	}
+	# 	foundry_jobs_bonus_workforce_mult = 0.4
+	# 	engineer_jobs_bonus_workforce_mult = 0.15
+	# }
+
+	# triggered_pop_group_modifier = {
+	# 	potential = {
+	# 		exists = from
+	# 		from = {
+	# 			country_uses_consumer_goods = yes
+	# 			# NOT = {
+	# 			# 	has_ethic = ethic_gestalt_consciousness
+	# 			# }
+	# 		}
+	# 	}
+	# 	# foundry_jobs_bonus_workforce_mult = 0.3
+	# 	artisan_jobs_bonus_workforce_mult = 0.3
+	# 	# engineer_jobs_bonus_workforce_mult = 0.15
+	# }
+
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = from
+			from = {
+				country_uses_consumer_goods = no
+				# has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		# foundry_jobs_bonus_workforce_mult = 0.3
+		# artisan_jobs_bonus_workforce_mult = 0.15
+		miner_jobs_bonus_workforce_mult = 0.3
+		# engineer_jobs_bonus_workforce_mult = 0.15
+	}
+	slave_cost = {
+		energy = 50
+	}
+}
+
+# trait_ice_type_mega_evolution_swarm = {
+# 	cost = 4
+# 	# potential_crossbreeding_chance = 0.5
+# 	icon = "gfx/interface/icons/EeveelutionTypes/ice_type.png"
+# 	initial = no
+# 	randomized = no
+# 	advanced_trait = yes
+# 	species_potential_add = {
+# 		always = no
+# 	}
+
+# 	species_possible_merge_add = {
+# 		always = no
+# 	}
+# 	allowed_archetypes = { BIOLOGICAL }
+# 	species_class = { Eeveelutions }
+	
+# 	modifier = {
+# 		foundry_jobs_bonus_workforce_mult = 0.3
+# 		artisan_jobs_bonus_workforce_mult = 0.15
+# 		miner_jobs_bonus_workforce_mult = 0.3
+# 		engineer_jobs_bonus_workforce_mult = 0.15
+# 		# planet_jobs_rare_crystals_produces_mult = 0.20
+# 		# planet_jobs_exotic_gases_produces_mult = 0.20
+# 		# planet_jobs_volatile_motes_produces_mult = 0.20
+		
+# 	}
+# 	slave_cost = {
+# 		energy = 50
+# 	}
+# }
+
+trait_fairy_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/fairy_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	advanced_trait = yes
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	# opposites = { trait_fairy_type_mega_evolution_swarm }
+	species_potential_add = {
+		can_do_advanced_gene_modding = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+
+	modifier = {
+	    species_empire_size_mult = -0.4
+		# pop_growth_from_immigration = 0.50
+		pop_resettlement_cost_mult = -0.50
+		
+		
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+	
+}
+
+# trait_fairy_type_mega_evolution_swarm = {
+# 	cost = 4
+# 	# potential_crossbreeding_chance = 0.5
+# 	icon = "gfx/interface/icons/EeveelutionTypes/fairy_type.png"
+# 	initial = no
+# 	randomized = no
+# 	improves_leaders = yes
+# 	advanced_trait = yes
+# 	species_potential_add = {
+# 		always = no
+# 	}
+	
+# 	species_possible_merge_add = {
+# 		always = no
+# 	}
+# 	allowed_archetypes = { BIOLOGICAL }
+# 	species_class = { Eeveelutions }
+# 	modifier = {
+# 	    species_empire_size_mult = -0.50
+# 		pop_resettlement_cost_mult = -0.50	
+# 	}
+
+# 	slave_cost = {
+# 		energy = 50
+# 	}
+	
+# }
+
+#trait_nuclear_type_mega_evolution = {
+#	cost = 4
+#	# potential_crossbreeding_chance = 0.5
+#	icon = "gfx/interface/icons/EeveelutionTypes/nuclear_type.png"
+#	initial = no
+#	randomized = no
+#	advanced_trait = yes
+#	allowed_archetypes = { BIOLOGICAL }
+#	modifier = {
+#		planet_jobs_physics_research_produces_mult = 0.20
+#		pc_nuked_habitability = 1.0
+#	}
+#	
+#}
+trait_steel_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/steel_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+	    leader_lifespan_add = 15
+		pop_environment_tolerance = 0.3
+		planet_jobs_alloys_produces_mult = 0.15
+		army_damage_mult = 0.15
+		army_health = 0.15
+		logistic_growth_mult = -0.1
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_rock_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/rock_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+	    leader_lifespan_add = 15
+		pop_environment_tolerance = 0.1
+		planet_jobs_minerals_produces_mult = 0.2
+		planet_jobs_exotic_gases_produces_mult = 0.2
+		planet_jobs_rare_crystals_produces_mult = 0.2
+		planet_jobs_volatile_motes_produces_mult = 0.2
+		army_health = 0.15
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_ground_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/ground_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+	    leader_lifespan_add = 15
+		pop_environment_tolerance = 0.1
+		farmer_jobs_bonus_workforce_mult = 0.3
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_fly_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/fly_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		trader_jobs_bonus_workforce_mult = 0.3
+		#pop_growth_from_immigration = 1
+		pop_resettlement_cost_mult = -0.50
+		species_empire_size_mult = -0.3
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_fight_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/fight_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		planet_jobs_unity_produces_mult = 0.25
+		planet_jobs_worker_produces_mult = 0.1
+		pop_slave_bonus_workforce_mult = 0.15
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_posion_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/poison_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		planet_jobs_physics_research_produces_mult = 0.3
+		planet_jobs_society_research_produces_mult = 0.3
+		planet_jobs_engineering_research_produces_mult = 0.3
+		pop_happiness = 0.2
+		planet_crime_mult = 0.1
+		planet_jobs_unity_produces_mult = -0.1
+		species_empire_size_mult = 0.1
+	}
+
+	slave_cost = {
+		energy = 50
+	}
+}
+
+trait_dragon_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/dragon_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		planet_jobs_produces_mult = 0.1
+		planet_pops_food_upkeep_mult = 0.2
+		planet_pops_consumer_goods_upkeep_mult = 0.2
+		bonus_pop_growth_mult = -0.1
+		logistic_growth_mult = -0.1
+	}
+	slave_cost = {
+		energy = 50
+	}
+
+}
+
+trait_bug_type_mega_evolution = {
+	cost = 4
+	# potential_crossbreeding_chance = 0.5
+	icon = "gfx/interface/icons/EeveelutionTypes/bug_type.png"
+	initial = no
+	randomized = no
+	improves_leaders = yes
+	species_potential_add = {
+		can_add_cybernetic_traits = yes
+	}
+	species_possible_merge_add = {
+		can_remove_cybernetic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	species_class = { Eeveelutions }
+	modifier = {
+		leader_lifespan_add = -30
+		logistic_growth_mult = 0.3
+		bonus_pop_growth_mult = 0.3
+		species_empire_size_mult = -0.3
+	}
+	slave_cost = {
+		energy = 50
+	}
+
+}
+
+trait_EOE_egg_laying = {
+	cost = 0
+	icon = "gfx/interface/icons/traits/trait_egg_laying.dds"
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+	opposites = { "trait_pyroclastic" "trait_slow_breeders" "trait_fertile" "trait_rapid_breeders_lithoid" "trait_plantoid_budding" "trait_lithoid_budding" "trait_vat_grown" "trait_tiyanki" "trait_humanoid_existential_iteroparity" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { Eeveelutions }
+	localized_tags = {
+		SPECIES_TRAIT_Eeveelutions
+	}
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	# ... Why?
+	# portrait_override = { mam16 mindwarden_01 } 
+	tags = { organic positive pop_growth avian reptilian aquatic species }
+	custom_tooltip = trait_egg_laying_effect
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			OR = {
+				# AND = {
+				# 	planet = {
+				# 		NOT = { has_deficit = minerals }
+				# 	}
+				# 	from = { has_trait = trait_lithoid }
+				# }
+				AND = {
+					planet = {
+						NOT = { has_deficit = food }
+					}
+					from = { has_trait = trait_organic }
+				}
+				AND = {
+					planet = {
+						NOT = { has_deficit = alloys }
+					}
+					from = { has_trait = trait_infernal }
+				}
+			}
+		}
+		logistic_growth_mult = 0.15
+	}
+
+	assembly_score = {
+		modifier = {
+			add = 2
+			OR = {
+				AND = {
+					from = {
+						NOT = { has_deficit = minerals }
+					}
+					has_trait = trait_lithoid
+				}
+				AND = {
+					from = {
+						NOT = { has_deficit = food }
+					}
+				}
+				AND = {
+					from = {
+						NOT = { has_deficit = alloys }
+					}
+					has_trait = trait_infernal
+				}
+			}
+		}
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+}
+
